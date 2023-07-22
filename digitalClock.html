@@ -9,119 +9,11 @@
          "https://fonts.gstatic.com" crossorigin>
       <link href=
          "https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-      <style>
-         body {
-         margin: auto;
-         background-color: #585CA7;
-         color: white;
-         text-align: center;
-         font-family: 'Roboto', sans-serif;
-         padding: 60px 0;
-         }
-         /* using responsive font size */
-         h1 {
-         font-size:3vw;
-         }
-         p {
-         font-size:7vw;
-         } 
-         button {
-         padding: 1% 1.5%;
-         border: none;
-         border-radius: 50px;
-         background-color: #484c8c;
-         color: white;
-         }
-         .light-mode {
-         background-color: white;
-         color: #585CA7;
-         font-weight: bold;
-         }
-         .light-mode button {
-         padding: 1% 1.5%;
-         border: 1px solid #585CA7;
-         border-radius: 50px;
-         color: #585CA7;
-         background-color: white;
-         }
-         #theme {
-         position: absolute;
-         top: 0px;
-         right: 0px;
-         margin-right: 3%;
-         margin-top: 3%;
-         }
-      </style>
    </head>
    <body>
       <button id="theme" onclick="myFunction()"> Light Mode</button>
       <h1> Digital Clock </h1>
       <p id="time"></p>
       <button id="button"  onclick="changeButtonText()"> Military Time </button>
-      <script>
-         changeButtonText() // so that the onclick event handler activates once page loads
-                  changeButtonText(); //to cancel out the first calling and display Standard Time
-         
-         // creating a function to get and display the current time, session in the right format
-          function currentTime(){
-           date = new Date();  			 //creating a new date object using new Date() constructor
-           // saving the hours, minutes and seconds using date 
-           hrs = date.getHours();
-           mins = date.getMinutes();
-           secs = date.getSeconds();
-           session = "";
-           
-           var format = document.getElementById("button");
-           mins =  (mins < 10)? "0" + mins : mins;
-           secs =  (secs < 10)? "0" + secs : secs;
-           hrs =  (hrs < 10)? "0" + hrs : hrs;
-         
-           
-          
-                    if(format.innerHTML === "Military Time"){
-          //using if condition to change string session to "PM" if after noon
-           if (hrs > 12) {
-             session = "PM";
-             }
-           else{
-             session = "AM";
-         	}
-            
-           //foramtting: using React JS conditional operators to add 0 before numbers less than 10.
-           //Syntax: condition ? <expression if true> : <expression if false>
-         hrs =  (hrs > 12)? hrs - 12 : hrs;
-                    }
-                    
-           time = hrs + ":" + mins + ":" + secs + " " + session;
-           document.getElementById("time").innerText = time;
-                    
-                    // to run every second		  
-           setTimeout( currentTime, 1000);
-         }
-         
-         	function changeButtonText() // no ';' here
-         {
-         	var format = document.getElementById("button");
-         	if (format.innerHTML=="Standard Time") format.innerHTML = "Military Time";
-         	else format.innerHTML = "Standard Time";
-         	//return format.innerHTML;
-         }
-         
-         //calling the function
-         currentTime();
-         
-         function myFunction() {
-         var element = document.body;
-         element.classList.toggle("light-mode");         
-         var x = document.getElementById("theme");
-         if (x.innerHTML === "Dark Mode") {
-         x.innerHTML = "Light Mode";
-         } else {
-         x.innerHTML = "Dark Mode";
-         }
-                  }
-                  myFunction();
-                  myFunction();
-      </script>
    </body>
 </html>

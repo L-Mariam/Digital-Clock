@@ -1,0 +1,41 @@
+body {
+    margin: auto;
+    background-color: #585CA7;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 60px 0;
+}
+/* using responsive font size */
+h1 {
+    font-size:3vw;
+}
+p {
+    font-size:7vw;
+}
+button {
+    padding: 1% 1.5%;
+    border: none;
+    border-radius: 50px;
+    background-color: #484c8c;
+    color: white;
+}
+.light-mode {
+    background-color: white;
+    color: #585CA7;
+    font-weight: bold;
+}
+.light-mode button {
+    padding: 1% 1.5%;
+    border: 1px solid #585CA7;
+    border-radius: 50px;
+    color: #585CA7;
+    background-color: white;
+}
+#theme {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-right: 3%;
+    margin-top: 3%;
+}
